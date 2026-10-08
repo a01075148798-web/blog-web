@@ -1,0 +1,334 @@
+<style>
+    :root {
+        --bg-main: #FAF5EC;
+        --bg-card: #FFFFFF;
+        --bg-butter: #FFF8DF;
+        --primary-yellow: #F7D250;
+        --primary-tomato: #E84A3B;
+        --accent-blue: #3B78AA;
+        --accent-green: #3F7A58;
+        --text-main: #332A24;
+        --text-sub: #6B6055;
+        --text-muted: #9E9388;
+        --border-warm: #EFE4D3;
+        --shadow-soft: 0 8px 24px rgba(80, 60, 40, 0.06);
+        --shadow-hover: 0 12px 28px rgba(80, 60, 40, 0.12);
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Gowun Dodum', 'Noto Sans KR', sans-serif;
+        background-color: var(--bg-main);
+        color: var(--text-main);
+        line-height: 1.6;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    .container {
+        max-width: 820px;
+        margin: 0 auto;
+        padding: 0 20px;
+        width: 100%;
+    }
+
+    /* HEADER */
+    header {
+        background-color: var(--bg-card);
+        border-bottom: 2px solid var(--border-warm);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+    }
+
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 0;
+    }
+
+    .logo-group {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .logo-icon {
+        width: 42px;
+        height: 42px;
+        background: var(--primary-yellow);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        box-shadow: 0 3px 0 #DDA91B;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: var(--text-main);
+        letter-spacing: -0.5px;
+    }
+
+    .logo-subtitle {
+        font-size: 0.8rem;
+        color: var(--accent-green);
+        font-weight: 500;
+    }
+
+    .nav-back {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        background: var(--bg-butter);
+        border: 1px solid #F0DFB0;
+        border-radius: 20px;
+        color: #9C720B;
+        font-weight: 700;
+        font-size: 0.88rem;
+        transition: all 0.2s ease;
+    }
+
+    .nav-back:hover {
+        background: #FFEFA3;
+        transform: translateY(-1px);
+    }
+
+    /* FORM SECTION */
+    .form-wrapper {
+        margin: 35px 0 60px 0;
+        background: var(--bg-card);
+        border-radius: 24px;
+        border: 1px solid var(--border-warm);
+        box-shadow: var(--shadow-soft);
+        padding: 36px 40px;
+    }
+
+    .form-header {
+        margin-bottom: 28px;
+        padding-bottom: 18px;
+        border-bottom: 2px dashed var(--border-warm);
+    }
+
+    .form-header h2 {
+        font-size: 1.4rem;
+        color: var(--text-main);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .form-header p {
+        font-size: 0.9rem;
+        color: var(--text-sub);
+        margin-top: 6px;
+    }
+
+    .form-group {
+        margin-bottom: 24px;
+    }
+
+    .form-group label {
+        display: block;
+        font-weight: 700;
+        font-size: 0.95rem;
+        color: var(--text-main);
+        margin-bottom: 8px;
+    }
+
+    .form-group label span.required {
+        color: var(--primary-tomato);
+        margin-left: 2px;
+    }
+
+    input[type="text"], textarea {
+        width: 100%;
+        padding: 14px 18px;
+        border: 2px solid var(--border-warm);
+        border-radius: 14px;
+        font-size: 1rem;
+        font-family: inherit;
+        color: var(--text-main);
+        background-color: #FFFDFB;
+        transition: all 0.2s ease;
+        outline: none;
+    }
+
+    input[type="text"]:focus, textarea:focus {
+        border-color: var(--primary-yellow);
+        background-color: #FFFFFF;
+        box-shadow: 0 0 0 4px rgba(247, 210, 80, 0.2);
+    }
+
+    input[type="text"]::placeholder, textarea::placeholder {
+        color: var(--text-muted);
+        font-size: 0.92rem;
+    }
+
+    textarea {
+        min-height: 260px;
+        resize: vertical;
+        line-height: 1.7;
+    }
+
+    .form-actions {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 12px;
+        margin-top: 32px;
+        padding-top: 20px;
+        border-top: 1px solid var(--border-warm);
+    }
+
+    .btn-cancel {
+        padding: 12px 24px;
+        border-radius: 30px;
+        font-weight: 700;
+        font-size: 0.95rem;
+        color: var(--text-sub);
+        background-color: #F2EADC;
+        border: none;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .btn-cancel:hover {
+        background-color: #E6DBCB;
+        color: var(--text-main);
+    }
+
+    .btn-submit {
+        padding: 12px 28px;
+        border-radius: 30px;
+        font-weight: 700;
+        font-size: 0.95rem;
+        color: #FFFFFF;
+        background-color: var(--primary-tomato);
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 4px 0 #B83225;
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .btn-submit:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 0 #B83225;
+        background-color: #F05344;
+    }
+
+    .btn-submit:active {
+        transform: translateY(2px);
+        box-shadow: 0 2px 0 #B83225;
+    }
+
+    /* FOOTER */
+    footer {
+        margin-top: auto;
+        background-color: #F2EADC;
+        border-top: 1px solid var(--border-warm);
+        padding: 30px 0;
+        text-align: center;
+        font-size: 0.85rem;
+        color: var(--text-sub);
+    }
+
+    .footer-logo {
+        font-weight: 700;
+        color: var(--text-main);
+        margin-bottom: 6px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+        .form-wrapper {
+            padding: 24px 20px;
+        }
+
+        .form-actions {
+            flex-direction: column-reverse;
+            width: 100%;
+        }
+
+        .btn-cancel, .btn-submit {
+            width: 100%;
+            text-align: center;
+            justify-content: center;
+        }
+    }
+</style>
+
+
+<!-- HEADER -->
+<header>
+    <div class="container header-content">
+        <a href="/" class="logo-group">
+            <div class="logo-icon">🍲</div>
+            <div>
+                <h1>맛집리뷰</h1>
+                <div class="logo-subtitle">전국의 맛있는 한 끼 기록</div>
+            </div>
+        </a>
+        <a class="nav-back" href="/">
+            <span>🏠</span> 메인으로 돌아가기
+        </a>
+    </div>
+</header>
+
+<main class="container">
+    <!-- WRITE FORM SECTION -->
+    <div class="form-wrapper">
+        <div class="form-header">
+            <h2>✍️ 새 맛집 리뷰 작성하기</h2>
+            <p>다녀오신 맛집의 위치, 가격대, 맛 평가와 추천 메뉴를 솔직하게 들려주세요.</p>
+        </div>
+
+        <form action="/write" method="post">
+            <div class="form-group">
+                <label for="title">글 제목 <span class="required">*</span></label>
+                <input type="text" id="title" name="title" placeholder="예: [성수] 따뜻한 일식 라멘과 가라아게 맛집 - 라멘야" required>
+            </div>
+
+            <div class="form-group">
+                <label for="content">리뷰 내용 <span class="required">*</span></label>
+                <textarea id="content" name="content" placeholder="맛집의 상세 정보(위치, 가격, 메뉴 정보, 솔직한 맛 후기)를 자유롭게 적어보세요..." required></textarea>
+            </div>
+
+            <div class="form-actions">
+                <a href="/" class="btn-cancel">취소</a>
+                <button type="submit" class="btn-submit">
+                    <span>✏️</span> 리뷰 등록하기
+                </button>
+            </div>
+        </form>
+    </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="footer-logo">🍲 맛집리뷰 블로그</div>
+        <p>© 맛집리뷰. All rights reserved. 따뜻하고 맛있는 하루 되세요!</p>
+    </div>
+</footer>

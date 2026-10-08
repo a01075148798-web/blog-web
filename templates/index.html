@@ -1,0 +1,580 @@
+<style>
+    :root {
+        --bg-main: #FAF5EC;
+        --bg-card: #FFFFFF;
+        --bg-butter: #FFF8DF;
+        --primary-yellow: #F7D250;
+        --primary-tomato: #E84A3B;
+        --accent-blue: #3B78AA;
+        --accent-green: #3F7A58;
+        --text-main: #332A24;
+        --text-sub: #6B6055;
+        --text-muted: #9E9388;
+        --border-warm: #EFE4D3;
+        --shadow-soft: 0 8px 24px rgba(80, 60, 40, 0.06);
+        --shadow-hover: 0 12px 28px rgba(80, 60, 40, 0.12);
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Gowun Dodum', 'Noto Sans KR', sans-serif;
+        background-color: var(--bg-main);
+        color: var(--text-main);
+        line-height: 1.6;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    .container {
+        max-width: 1020px;
+        margin: 0 auto;
+        padding: 0 20px;
+        width: 100%;
+    }
+
+    /* HEADER */
+    header {
+        background-color: var(--bg-card);
+        border-bottom: 2px solid var(--border-warm);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+    }
+
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 0;
+    }
+
+    .logo-group {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .logo-icon {
+        width: 42px;
+        height: 42px;
+        background: var(--primary-yellow);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        box-shadow: 0 3px 0 #DDA91B;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: var(--text-main);
+        letter-spacing: -0.5px;
+    }
+
+    .logo-subtitle {
+        font-size: 0.8rem;
+        color: var(--accent-green);
+        font-weight: 500;
+    }
+
+    .button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 10px 20px;
+        color: #FFFFFF;
+        background-color: var(--primary-tomato);
+        border-radius: 30px;
+        font-weight: 700;
+        font-size: 0.95rem;
+        box-shadow: 0 4px 0 #B83225;
+        transition: all 0.2s ease;
+    }
+
+    .button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 0 #B83225;
+        background-color: #F05344;
+    }
+
+    .button:active {
+        transform: translateY(2px);
+        box-shadow: 0 2px 0 #B83225;
+    }
+
+    /* HERO BANNER */
+    .hero-banner {
+        margin: 30px 0 25px 0;
+        background: linear-gradient(135deg, #FFFDF8 0%, var(--bg-butter) 100%);
+        border: 2px dashed #E5D6C0;
+        border-radius: 24px;
+        padding: 28px 32px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero-text h2 {
+        font-size: 1.5rem;
+        color: var(--text-main);
+        margin-bottom: 6px;
+    }
+
+    .hero-text p {
+        font-size: 0.95rem;
+        color: var(--text-sub);
+    }
+
+    .hero-badge-group {
+        display: flex;
+        gap: 8px;
+        margin-top: 12px;
+        flex-wrap: wrap;
+    }
+
+    .hero-badge {
+        background: #FFFFFF;
+        border: 1px solid var(--border-warm);
+        padding: 4px 12px;
+        border-radius: 16px;
+        font-size: 0.82rem;
+        color: var(--accent-blue);
+        font-weight: 600;
+    }
+
+    .hero-illustration {
+        font-size: 3.5rem;
+        line-height: 1;
+        user-select: none;
+        filter: drop-shadow(0 4px 6px rgba(0,0,0,0.08));
+    }
+
+    /* SEARCH BAR */
+    .search-container {
+        margin-bottom: 30px;
+    }
+
+    form {
+        display: flex;
+        gap: 10px;
+        background: var(--bg-card);
+        padding: 8px;
+        border-radius: 40px;
+        border: 2px solid var(--border-warm);
+        box-shadow: var(--shadow-soft);
+        transition: border-color 0.2s ease;
+    }
+
+    form:focus-within {
+        border-color: var(--primary-yellow);
+    }
+
+    input {
+        flex: 1;
+        padding: 10px 20px;
+        border: none;
+        outline: none;
+        background: transparent;
+        font-size: 1rem;
+        font-family: inherit;
+        color: var(--text-main);
+    }
+
+    input::placeholder {
+        color: var(--text-muted);
+    }
+
+    button[type="submit"] {
+        padding: 10px 24px;
+        border: 0;
+        border-radius: 30px;
+        color: #FFFFFF;
+        background-color: var(--accent-blue);
+        font-weight: 700;
+        font-size: 0.95rem;
+        cursor: pointer;
+        box-shadow: 0 3px 0 #2A5A82;
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #4887B9;
+        transform: translateY(-1px);
+    }
+
+    /* SEARCH RESULT ALERT */
+    .search-info {
+        background-color: #EBF4FA;
+        border: 1px solid #C2DCED;
+        color: var(--accent-blue);
+        padding: 12px 20px;
+        border-radius: 14px;
+        margin-bottom: 25px;
+        font-size: 0.95rem;
+    }
+
+    /* MAIN LAYOUT GRID */
+    .main-layout {
+        display: grid;
+        grid-template-columns: 1fr 280px;
+        gap: 30px;
+        margin-bottom: 50px;
+    }
+
+    /* POSTS LIST */
+    .posts-section-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--text-main);
+    }
+
+    .posts-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .post {
+        background: var(--bg-card);
+        border-radius: 18px;
+        border: 1px solid var(--border-warm);
+        box-shadow: var(--shadow-soft);
+        transition: all 0.25 ease;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .post:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-hover);
+        border-color: #E2D3BE;
+    }
+
+    .post a {
+        display: block;
+        padding: 24px;
+    }
+
+    .post-header-tag {
+        display: inline-block;
+        background: var(--bg-butter);
+        color: #9C720B;
+        font-size: 0.78rem;
+        font-weight: 700;
+        padding: 3px 10px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #F0DFB0;
+    }
+
+    .post h2 {
+        font-size: 1.25rem;
+        color: var(--text-main);
+        margin-bottom: 10px;
+        line-height: 1.4;
+        transition: color 0.2s ease;
+    }
+
+    .post:hover h2 {
+        color: var(--primary-tomato);
+    }
+
+    .post p {
+        color: var(--text-sub);
+        font-size: 0.93rem;
+        line-height: 1.6;
+        margin-bottom: 16px;
+        word-break: break-word;
+    }
+
+    .post-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 14px;
+        border-top: 1px dashed var(--border-warm);
+    }
+
+    .date {
+        font-size: 0.82rem;
+        color: var(--text-muted);
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+
+    .read-more {
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: var(--accent-green);
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .sidebar-card {
+        background: var(--bg-card);
+        border-radius: 18px;
+        border: 1px solid var(--border-warm);
+        padding: 20px;
+        box-shadow: var(--shadow-soft);
+    }
+
+    .profile-card {
+        text-align: center;
+    }
+
+    .profile-avatar {
+        width: 72px;
+        height: 72px;
+        background: #FFE8A3;
+        border: 3px solid #FFFFFF;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        border-radius: 50%;
+        margin: 0 auto 12px auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.2rem;
+    }
+
+    .profile-name {
+        font-weight: 700;
+        font-size: 1.05rem;
+        color: var(--text-main);
+    }
+
+    .profile-bio {
+        font-size: 0.85rem;
+        color: var(--text-sub);
+        margin-top: 6px;
+        line-height: 1.5;
+    }
+
+    .category-list {
+        list-style: none;
+        margin-top: 10px;
+    }
+
+    .category-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 10px;
+        font-size: 0.88rem;
+        color: var(--text-sub);
+        border-radius: 8px;
+        transition: background 0.2s ease;
+    }
+
+    .category-item:hover {
+        background: var(--bg-butter);
+        color: var(--text-main);
+    }
+
+    .sidebar-title {
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--text-main);
+        padding-bottom: 8px;
+        border-bottom: 2px solid var(--border-warm);
+        margin-bottom: 8px;
+    }
+
+    /* EMPTY STATE */
+    .empty {
+        padding: 60px 20px;
+        text-align: center;
+        color: var(--text-sub);
+        background: var(--bg-card);
+        border-radius: 18px;
+        border: 2px dashed var(--border-warm);
+    }
+
+    .empty-icon {
+        font-size: 3rem;
+        margin-bottom: 12px;
+    }
+
+    /* FOOTER */
+    footer {
+        margin-top: auto;
+        background-color: #F2EADC;
+        border-top: 1px solid var(--border-warm);
+        padding: 30px 0;
+        text-align: center;
+        font-size: 0.85rem;
+        color: var(--text-sub);
+    }
+
+    .footer-logo {
+        font-weight: 700;
+        color: var(--text-main);
+        margin-bottom: 6px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+        .main-layout {
+            grid-template-columns: 1fr;
+        }
+
+        .hero-banner {
+            flex-direction: column;
+            text-align: center;
+            gap: 15px;
+        }
+
+        .hero-badge-group {
+            justify-content: center;
+        }
+
+        .sidebar {
+            order: 2;
+        }
+    }
+</style>
+
+
+<!-- HEADER -->
+<header>
+    <div class="container header-content">
+        <a href="/" class="logo-group">
+            <div class="logo-icon">🍲</div>
+            <div>
+                <h1>맛집리뷰</h1>
+                <div class="logo-subtitle">전국의 맛있는 한 끼 기록</div>
+            </div>
+        </a>
+        <a class="button" href="/write">
+            <span>✏️</span> 글쓰기
+        </a>
+    </div>
+</header>
+
+<main class="container">
+    <!-- HERO WELCOME BANNER -->
+    <section class="hero-banner">
+        <div class="hero-text">
+            <h2>오늘 어떤 맛집을 찾으시나요? 😋</h2>
+            <p>직접 다녀오고 검증한 솔직한 맛집 사진과 리뷰를 모았습니다.</p>
+            <div class="hero-badge-group">
+                <span class="hero-badge">📍 전국 맛집지도</span>
+                <span class="hero-badge">⭐ 솔직한 내돈내산</span>
+                <span class="hero-badge">🍞 디저트 & 카페</span>
+            </div>
+        </div>
+        <div class="hero-illustration">
+            🍱
+        </div>
+    </section>
+
+    <!-- SEARCH FORM -->
+    <div class="search-container">
+        <form action="/" method="get">
+            <input type="text" name="keyword" value="{{ keyword }}" placeholder="음식명, 지역, 맛집 이름으로 검색해보세요...">
+            <button type="submit">
+                <span>🔍</span> 검색
+            </button>
+        </form>
+    </div>
+
+    {% if keyword %}
+        <div class="search-info">
+            🔎 <strong>“{{ keyword }}”</strong> 검색 결과입니다.
+        </div>
+    {% endif %}
+
+    <!-- MAIN LAYOUT (POSTS + SIDEBAR) -->
+    <div class="main-layout">
+        <!-- POST LIST SECTION -->
+        <section>
+            <div class="posts-section-title">
+                <span>📜</span> 최근 등록된 맛집 리뷰
+            </div>
+
+            <div class="posts-grid">
+                {% for post in posts %}
+                    <article class="post">
+                        <a href="/post/{{ post.id }}">
+                            <span class="post-header-tag">🍴 맛집 탐방기</span>
+                            <h2>{{ post.title }}</h2>
+                            <p>{{ post.content[:100] }}{% if post.content|length > 100 %}...{% endif %}</p>
+                            <div class="post-meta">
+                                <span class="date">📅 {{ post.created_at }}</span>
+                                <span class="read-more">자세히 보기 →</span>
+                            </div>
+                        </a>
+                    </article>
+                {% else %}
+                    <div class="empty">
+                        <div class="empty-icon">🍽️</div>
+                        {% if keyword %}
+                            검색 결과가 없습니다. 다른 검색어로 찾아보세요!
+                        {% else %}
+                            아직 작성된 맛집 리뷰가 없습니다.<br>첫 번째 맛집을 소개해보세요!
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <!-- SIDEBAR SECTION -->
+        <aside class="sidebar">
+            <!-- PROFILE WIDGET -->
+            <div class="sidebar-card profile-card">
+                <div class="profile-avatar">🍳</div>
+                <div class="profile-name">맛탐험가</div>
+                <div class="profile-bio">
+                    맛있는 음식과 따뜻한 공간을 사랑하는 블로거입니다. 매일 새로운 맛집을 찾아 떠납니다!
+                </div>
+            </div>
+
+            <!-- CATEGORIES WIDGET -->
+            <div class="sidebar-card">
+                <div class="sidebar-title">📌 인기 카테고리</div>
+                <ul class="category-list">
+                    <li class="category-item"><span>🍲 국물·탕 요리</span> <span>HOT</span></li>
+                    <li class="category-item"><span>🥩 고기·구이</span> <span>NEW</span></li>
+                    <li class="category-item"><span>🍱 한식 한상</span> <span>BEST</span></li>
+                    <li class="category-item"><span>🍰 디저트·카페</span> <span>LIKE</span></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="footer-logo"> 맛집리뷰 블로그</div>
+        <p>© 맛집리뷰. All rights reserved. 따뜻하고 맛있는 하루 되세요!</p>
+    </div>
+</footer>
